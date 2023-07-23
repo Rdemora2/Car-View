@@ -7,7 +7,7 @@ import { VeiculoService } from '../services/veiculo.service';
   styleUrls: ['./veiculo-edit.component.css']
 })
 export class VeiculoEditComponent {
-  @Input() veiculo: Veiculo; // Veículo passado como entrada para o componente
+  @Input() veiculo!: Veiculo; // Veículo passado como entrada para o componente
 
   constructor(private veiculoService: VeiculoService) { }
 
