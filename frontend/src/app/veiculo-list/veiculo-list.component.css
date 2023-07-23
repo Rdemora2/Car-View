@@ -1,0 +1,18 @@
+.veiculo-container {
+    width: 20vw;
+    height: 35vh;
+    float: left;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px black solid;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 20px;
+  }
+
+img {
+    width: 90%;
+}

@@ -9,5 +9,5 @@ urlpatterns = [
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/veiculos/', VeiculoListCreateView.as_view(), name='veiculo_list_create'),
     path('api/veiculos/<int:pk>/', VeiculoDetailView.as_view(), name='veiculo_detail'),
-    path('api/imagens/<str:filename>/', serve_imagem, name='serve-imagem'),
+    path('veiculos/static/<str:filename>/', serve_imagem, name='serve-imagem'),
 ]

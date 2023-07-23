@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class VeiculoListComponent implements OnInit {
   veiculos: Veiculo[] = [];
+  imageUrlMap: { [id: number]: string } = {};
 
   constructor(private veiculoService: VeiculoService, private router: Router) {}
 
@@ -22,6 +23,10 @@ export class VeiculoListComponent implements OnInit {
     this.veiculoService.obterVeiculos().subscribe(
       (veiculos) => {
         this.veiculos = veiculos;
+        this.imageUrlMap = {};
+        this.veiculos.forEach((veiculo) => {
+          this.imageUrlMap[veiculo.id!] = `${veiculo.foto}`;
+        });
       },
       (error) => {
         console.error(error);
