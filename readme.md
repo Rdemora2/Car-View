@@ -24,7 +24,7 @@
     pip install -r requirements.txt
 
 ## 4 - Make the migrations from the back end
-    cd .\catalogo_veiculos\
+    cd .\backend\
     python manage.py makemigrations
     python manage.py migrate
 
