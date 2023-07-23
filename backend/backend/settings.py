@@ -128,3 +128,10 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),  # Tempo para o token de atualização ser usado após a expiração do token de acesso
     'SLIDING_TOKEN_REFRESH_LIFETIME_REACHED': timedelta(days=7),  # Tempo limite após a expiração do token de acesso para atualizar o token de atualização
 }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
