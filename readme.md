@@ -26,7 +26,4 @@
 # How to configure the frontend environment to run the project on a windows operating system
 
 ## 1 - Download Angular, node and angular jwt
-    npm install @auth0/angular-jwt
-    npm install bootstrap
-    npm install jquery
-    npm install popper.js
+    npm install bootstrap jquery popper.js
