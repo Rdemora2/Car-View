@@ -3,3 +3,7 @@
     height: 90vh;
     object-fit: cover;
   }
+
+img {
+    filter: blur(2px);
+}
