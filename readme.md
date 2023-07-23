@@ -1,6 +1,6 @@
 # Car view, a fullstack car catalog project
 
-![Alt text](main_screen.png)
+![Print do site](main_screen.png)
 
 ## Technologies
     - Python
