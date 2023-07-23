@@ -19,6 +19,10 @@ export class VeiculoService {
     return this.http.post<Veiculo>(this.apiUrl, veiculo);
   }
 
+  criarVeiculoComFoto(formData: FormData): Observable<any> {
+    return this.http.post(this.apiUrl, formData);
+  }
+
   editarVeiculo(veiculo: Veiculo): Observable<Veiculo> {
     const url = `${this.apiUrl}${veiculo.id}/`;
     return this.http.put<Veiculo>(url, veiculo);

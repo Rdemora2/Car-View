@@ -1,5 +1,5 @@
 <h2>Editar Veículo</h2>
-<form (submit)="editarVeiculo()">
+<form (submit)="editarVeiculo()" enctype="multipart/form-data">
   <label>
     Marca:
     <input type="text" [(ngModel)]="veiculo.marca" name="marca" required>
@@ -12,7 +12,7 @@
   <br>
   <label>
     Foto:
-    <input type="text" [(ngModel)]="veiculo.foto" name="foto" required>
+    <input type="file" [(ngModel)]="veiculo.foto" name="foto" required>
   </label>
   <br>
   <label>

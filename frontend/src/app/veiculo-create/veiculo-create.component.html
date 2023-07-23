@@ -10,10 +10,10 @@
     <input type="text" [(ngModel)]="novoVeiculo.modelo" name="modelo" required>
   </label>
   <br>
-  <label>
-    Foto:
-    <input type="text" [(ngModel)]="novoVeiculo.foto" name="foto" required>
-  </label>
+  <div class="form-group">
+    <label for="foto">Foto do Veículo:</label>
+    <input type="file" id="foto" name="foto" (change)="onFotoSelecionada($event)">
+  </div>
   <br>
   <label>
     Valor:
