@@ -30,12 +30,20 @@ export class VeiculoListComponent implements OnInit {
   }
 
   editarVeiculo(id: number | undefined): void {
-    // Verifique se o usuário está autenticado antes de redirecionar para a página de edição
-    if (this.veiculoService.isAuthenticated() && id !== undefined) {
-      this.router.navigate(['/edit', id]); // Redirecione para a página de edição com o ID do veículo
+    // Verificar se id é um número válido antes de redirecionar para a página de edição
+    if (id !== undefined) {
+      // Obter os detalhes completos do veículo usando o serviço
+      this.veiculoService.obterDetalhesVeiculo(id).subscribe(
+        (veiculo) => {
+          // Redirecionar para a página de edição e passar os detalhes do veículo
+          this.router.navigate(['/edit', id], { state: { veiculo: veiculo } });
+        },
+        (error) => {
+          console.error('Erro ao obter detalhes do veículo:', error);
+        }
+      );
     } else {
-      // Caso não esteja autenticado, redirecione para a página de login
-      this.router.navigate(['/login']);
+      console.log('ID do veículo é inválido');
     }
   }
 }

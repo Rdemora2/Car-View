@@ -1,5 +1,6 @@
 <h2>Veículos Disponíveis</h2>
 <div *ngFor="let veiculo of veiculos">
+  <img [src]="veiculo.foto" alt="{{ veiculo.marca }} {{ veiculo.modelo }}">
   <p>{{ veiculo.marca }} {{ veiculo.modelo }} (Valor: {{ veiculo.valor | currency }})</p>
   <button class="btn btn-primary" (click)="editarVeiculo(veiculo.id)">Editar</button>
 </div>

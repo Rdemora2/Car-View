@@ -24,9 +24,9 @@ export class VeiculoService {
     return this.http.post(this.apiUrl, formData);
   }
 
-  editarVeiculo(veiculo: Veiculo): Observable<Veiculo> {
-    const url = `${this.apiUrl}${veiculo.id}/`;
-    return this.http.put<Veiculo>(url, veiculo);
+  editarVeiculo(id: number, formData: FormData): Observable<Veiculo> {
+    const url = `${this.apiUrl}${id}/`;
+    return this.http.put<Veiculo>(url, formData);
   }
 
   deletarVeiculo(id: number): Observable<any> {
@@ -36,6 +36,11 @@ export class VeiculoService {
 
   obterVeiculos(): Observable<Veiculo[]> {
     return this.http.get<Veiculo[]>(this.apiUrl);
+  }
+
+  obterDetalhesVeiculo(id: number): Observable<Veiculo> {
+    const url = `${this.apiUrl}${id}/`;
+    return this.http.get<Veiculo>(url);
   }
 
   isAuthenticated(): boolean {

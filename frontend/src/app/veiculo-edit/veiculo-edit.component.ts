@@ -1,20 +1,74 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Veiculo } from '../services/veiculo';
 import { VeiculoService } from '../services/veiculo.service';
+
+function isFile(obj: any): obj is File {
+  return obj instanceof File;
+}
+
 @Component({
   selector: 'app-veiculo-edit',
   templateUrl: './veiculo-edit.component.html',
   styleUrls: ['./veiculo-edit.component.css']
 })
-export class VeiculoEditComponent {
-  @Input() veiculo!: Veiculo; // Veículo passado como entrada para o componente
 
-  constructor(private veiculoService: VeiculoService) { }
+export class VeiculoEditComponent implements OnInit {
+  veiculo: Veiculo = {
+    marca: '',
+    modelo: '',
+    foto: '',
+    valor: 0
+  };
+
+  constructor(private veiculoService: VeiculoService, private route: ActivatedRoute) { }
+
+  ngOnInit(): void {
+    // Obter o valor do parâmetro 'id' da rota
+    const id = this.route.snapshot.params['id'];
+    // Chamar a função carregarDetalhesVeiculo com o valor do 'id'
+    this.carregarDetalhesVeiculo(id);
+  }
+
+  carregarDetalhesVeiculo(id: number): void {
+    // Verificar se o 'id' é válido
+    if (id !== undefined) {
+      // Chamar o serviço para carregar os detalhes do veículo
+      this.veiculoService.obterDetalhesVeiculo(id).subscribe((veiculo) => {
+        this.veiculo = veiculo;
+      });
+    } else {
+      console.log('ID do veículo é inválido');
+    }
+  }
+
 
   editarVeiculo(): void {
-    this.veiculoService.editarVeiculo(this.veiculo)
-      .subscribe(() => {
-        // Lógica após a edição do veículo (por exemplo, exibir uma mensagem de sucesso)
-      });
+    const formData = new FormData();
+    formData.append('marca', this.veiculo.marca);
+    formData.append('modelo', this.veiculo.modelo);
+  
+    if (isFile(this.veiculo.foto)) {
+      formData.append('foto', this.veiculo.foto);
+    }
+  
+    formData.append('valor', this.veiculo.valor.toString());
+  
+    if (this.veiculo.id !== undefined) {
+      this.veiculoService.editarVeiculo(this.veiculo.id, formData)
+        .subscribe(() => {
+          // Lógica após a edição do veículo (por exemplo, exibir uma mensagem de sucesso)
+          console.log('Veículo editado com sucesso!');
+        }, (error) => {
+          console.error('Erro ao editar veículo:', error);
+        });
+    } else {
+      console.error('Erro ao editar veículo: ID do veículo não fornecido ou inválido.');
+    }
   }
+  onFotoChange(event: any): void {
+    const file = event.target.files[0];
+    this.veiculo.foto = file;
+  }
+
 }
