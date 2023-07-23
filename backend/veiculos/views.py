@@ -1,3 +1,12 @@
-from django.shortcuts import render
+from rest_framework import generics
+from .models import Veiculo
+from .serializers import VeiculoSerializer
+from rest_framework.permissions import IsAuthenticated
 
-# Create your views here.
+class VeiculoListCreateView(generics.ListCreateAPIView):
+    queryset = Veiculo.objects.all().order_by('valor')
+    serializer_class = VeiculoSerializer
+
+class VeiculoDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Veiculo.objects.all()
+    serializer_class = VeiculoSerializer
