@@ -5,10 +5,12 @@ import { VeiculoCreateComponent } from './veiculo-create/veiculo-create.componen
 import { VeiculoEditComponent } from './veiculo-edit/veiculo-edit.component';
 import { VeiculoDeleteComponent } from './veiculo-delete/veiculo-delete.component';
 import { LoginComponent } from './login/login.component';
+import { HomepageComponent } from './homepage/homepage.component';
 import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: VeiculoListComponent },
+  { path: '', component: HomepageComponent },
+  { path: 'catalog', component: VeiculoListComponent },
   { path: 'login', component: LoginComponent },
   { path: 'create', component: VeiculoCreateComponent, canActivate: [AuthGuard] }, // Rota protegida
   { path: 'edit/:id', component: VeiculoEditComponent, canActivate: [AuthGuard] }, // Rota protegida
