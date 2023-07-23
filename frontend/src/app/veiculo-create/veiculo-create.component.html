@@ -1,1 +1,24 @@
-<p>veiculo-create works!</p>
+<h2>Cadastrar Novo Veículo</h2>
+<form (submit)="criarVeiculo()">
+  <label>
+    Marca:
+    <input type="text" [(ngModel)]="novoVeiculo.marca" name="marca" required>
+  </label>
+  <br>
+  <label>
+    Modelo:
+    <input type="text" [(ngModel)]="novoVeiculo.modelo" name="modelo" required>
+  </label>
+  <br>
+  <label>
+    Foto:
+    <input type="text" [(ngModel)]="novoVeiculo.foto" name="foto" required>
+  </label>
+  <br>
+  <label>
+    Valor:
+    <input type="number" [(ngModel)]="novoVeiculo.valor" name="valor" required>
+  </label>
+  <br>
+  <button type="submit">Criar Veículo</button>
+</form>

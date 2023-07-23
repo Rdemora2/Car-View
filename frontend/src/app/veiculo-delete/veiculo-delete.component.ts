@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Veiculo } from '../services/veiculo';
+import { VeiculoService } from '../services/veiculo.service';
 
 @Component({
   selector: 'app-veiculo-delete',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./veiculo-delete.component.css']
 })
 export class VeiculoDeleteComponent {
+  @Input() veiculo: Veiculo; // Veículo passado como entrada para o componente
 
-}
+  constructor(private veiculoService: VeiculoService) { }
+
+  deletarVeiculo(): void {
+    this.veiculoService.deletarVeiculo(this.veiculo.id)
+      .subscribe(() => {
+        //

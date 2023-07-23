@@ -1,1 +1,7 @@
-<p>veiculo-list works!</p>
+<h2>Veículos Disponíveis</h2>
+<button (click)="ordenarPorValor()">Ordenar por Valor</button>
+<ul>
+  <li *ngFor="let veiculo of veiculos">
+    {{ veiculo.marca }} {{ veiculo.modelo }} - R$ {{ veiculo.valor }}
+  </li>
+</ul>

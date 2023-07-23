@@ -1,1 +1,24 @@
-<p>veiculo-edit works!</p>
+<h2>Editar Veículo</h2>
+<form (submit)="editarVeiculo()">
+  <label>
+    Marca:
+    <input type="text" [(ngModel)]="veiculo.marca" name="marca" required>
+  </label>
+  <br>
+  <label>
+    Modelo:
+    <input type="text" [(ngModel)]="veiculo.modelo" name="modelo" required>
+  </label>
+  <br>
+  <label>
+    Foto:
+    <input type="text" [(ngModel)]="veiculo.foto" name="foto" required>
+  </label>
+  <br>
+  <label>
+    Valor:
+    <input type="number" [(ngModel)]="veiculo.valor" name="valor" required>
+  </label>
+  <br>
+  <button type="submit">Salvar Alterações</button>
+</form>
