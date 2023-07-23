@@ -7,10 +7,14 @@ import { VeiculoDeleteComponent } from './veiculo-delete/veiculo-delete.componen
 import { LoginComponent } from './login/login.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { AuthGuard } from './services/auth.guard';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { RestrictedAreaComponent } from './restricted-area/restricted-area.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'catalog', component: VeiculoListComponent },
+  { path: 'about', component: AboutUsComponent },
+  { path: 'restricted-area', component: RestrictedAreaComponent },
   { path: 'login', component: LoginComponent },
   { path: 'create', component: VeiculoCreateComponent, canActivate: [AuthGuard] }, // Rota protegida
   { path: 'edit/:id', component: VeiculoEditComponent, canActivate: [AuthGuard] }, // Rota protegida

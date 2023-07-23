@@ -12,6 +12,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './services/auth.interceptor';
 import { RouterModule } from '@angular/router';
 import { HomepageComponent } from './homepage/homepage.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { RestrictedAreaComponent } from './restricted-area/restricted-area.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { HomepageComponent } from './homepage/homepage.component';
     VeiculoEditComponent,
     VeiculoDeleteComponent,
     LoginComponent,
-    HomepageComponent
+    HomepageComponent,
+    AboutUsComponent,
+    RestrictedAreaComponent
   ],
   imports: [
     BrowserModule,
