@@ -1,7 +1,5 @@
 <h2>Veículos Disponíveis</h2>
-<button (click)="ordenarPorValor()">Ordenar por Valor</button>
-<ul>
-  <li *ngFor="let veiculo of veiculos">
-    {{ veiculo.marca }} {{ veiculo.modelo }} - R$ {{ veiculo.valor }}
-  </li>
-</ul>
+<div *ngFor="let veiculo of veiculos">
+  <p>{{ veiculo.marca }} {{ veiculo.modelo }} (Valor: {{ veiculo.valor | currency }})</p>
+  <button class="btn btn-primary" (click)="editarVeiculo(veiculo.id)">Editar</button>
+</div>

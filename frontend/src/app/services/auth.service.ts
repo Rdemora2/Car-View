@@ -26,7 +26,6 @@ export class AuthService {
   }
 
   logout(): void {
-    // Limpar o token JWT do LocalStorage ao fazer logout
     localStorage.removeItem('token');
   }
 }

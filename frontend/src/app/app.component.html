@@ -13,13 +13,18 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Sobre</a>
         </li>
+        <li class="nav-item" *ngIf="authService.isAuthenticated()"> <!-- Usando *ngIf para mostrar a mensagem somente quando o usuário estiver autenticado -->
+          <a href="http://localhost:4200/create">
+            <button class="btn btn-primary">Cadastrar veiculo</button>
+          </a>
+        </li>
         <li class="nav-item" *ngIf="!authService.isAuthenticated()"> <!-- Usando *ngIf para mostrar o botão somente quando o usuário NÃO estiver autenticado -->
           <a href="http://localhost:4200/login">
-            <button class="btn btn-primary">Login adm</button>
+            <button class="btn btn-primary">Login admnistrativo</button>
           </a>
         </li>
         <li class="nav-item" *ngIf="authService.isAuthenticated()"> <!-- Usando *ngIf para mostrar a mensagem somente quando o usuário estiver autenticado -->
-          <p class="nav-link">Autenticado como administrador</p>
+            <button class="btn btn-danger" (click)="logout()">Logout</button>
         </li>
       </ul>
     </div>
