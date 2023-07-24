@@ -1,6 +1,12 @@
-<h2>Veículos Disponíveis</h2>
-<div class="veiculo-container" *ngFor="let veiculo of veiculos">
-  <img [src]="imageUrlMap[veiculo.id!]" alt="Imagem do Veículo">
-  <p>{{ veiculo.marca }} {{ veiculo.modelo }} (Valor: {{ veiculo.valor | currency }})</p>
-  <button class="btn btn-primary" (click)="editarVeiculo(veiculo.id)">Editar</button>
-</div>
+<main>
+  <h2>Veículos Disponíveis</h2>
+  <div class="card veiculo-container" style="width: 18rem;" *ngFor="let veiculo of veiculos">
+    <img [src]="imageUrlMap[veiculo.id!]" class="card-img-top" alt="Imagem do Veículo">
+    <div class="card-body">
+      <h5 class="card-title">{{ veiculo.marca }}, {{ veiculo.modelo }}</h5>
+      <p class="card-text">Valor: R{{ veiculo.valor | currency }}</p>
+      <button class="btn btn-primary" (click)="editarVeiculo(veiculo.id)">Editar</button>
+      <button class="btn btn-danger mx-2">Excluir</button>
+    </div>
+  </div>
+</main>
