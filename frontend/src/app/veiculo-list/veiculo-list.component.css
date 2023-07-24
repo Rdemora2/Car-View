@@ -7,10 +7,14 @@
   }
 
 img {
-  height: 30vh;
+  height: 22vh;
   box-sizing: border-box;
 }
 
 main {
   padding: 0 4%;
+}
+
+.card {
+  width: 15rem;
 }
