@@ -1,0 +1,12 @@
+html,
+body,
+.container-fluid {
+  height: 90vh;
+}
+
+
+.container-fluid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
