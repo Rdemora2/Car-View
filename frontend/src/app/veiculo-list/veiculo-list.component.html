@@ -1,16 +1,25 @@
 <header class="bg-dark text-white text-center py-2 mb-3">
     <h2 class="display-4">Veículos Disponíveis</h2>
 </header>
+
 <div class="container_disponiveis">
-  <div class="card veiculo-container" *ngFor="let veiculo of veiculos">
-    <img [src]="imageUrlMap[veiculo.id!]" class="card-img-top" alt="Imagem do Veículo">
-    <div class="card-body">
-      <h5 class="card-title">{{ veiculo.marca }}, {{ veiculo.modelo }}</h5>
-      <p class="card-text">R{{ veiculo.valor | currency }}</p>
-      <button class="btn btn-primary" (click)="editarVeiculo(veiculo.id)">Editar</button>
-      <button class="btn btn-danger mx-2" (click)="excluirVeiculo(veiculo.id)">Excluir</button>
+  <!-- Verifica se a lista de veículos está vazia -->
+  <ng-container *ngIf="veiculos.length; else noVeiculos">
+    <div class="card veiculo-container" *ngFor="let veiculo of veiculos">
+      <img [src]="imageUrlMap[veiculo.id!]" class="card-img-top" alt="Imagem do Veículo">
+      <div class="card-body">
+        <h5 class="card-title">{{ veiculo.marca }}, {{ veiculo.modelo }}</h5>
+        <p class="card-text">R{{ veiculo.valor | currency }}</p>
+        <button class="btn btn-primary" (click)="editarVeiculo(veiculo.id)">Editar</button>
+        <button class="btn btn-danger mx-2" (click)="excluirVeiculo(veiculo.id)">Excluir</button>
+      </div>
     </div>
-  </div>
+  </ng-container>
+
+  <!-- Caso não haja veículos, exibe a mensagem -->
+  <ng-template #noVeiculos>
+    <p class="text-center">Ops, parece que não temos veículos disponíveis no momento.</p>
+  </ng-template>
 </div>
 
 <!-- <footer class="bg-dark text-center text-white">
