@@ -1,5 +1,15 @@
-<div>
-    <h2>Confirmação de exclusão</h2>
-    <p>Tem certeza de que deseja excluir o veículo {{ veiculo.marca }} {{ veiculo.modelo }}?</p>
-    <button class="btn btn-danger" (click)="deleteVeiculo()">Confirmar Exclusão</button>
+<div class="modal-backdrop d-flex align-items-center justify-content-center vh-100" *ngIf="veiculo">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Confirmação de Exclusão</h2>
+      </div>
+      <div class="modal-body">
+        <p>Tem certeza de que deseja excluir o veículo {{ veiculo.marca }} {{ veiculo.modelo }}?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="deleteVeiculo()">Confirmar Exclusão</button>
+      </div>
+    </div>
   </div>
+</div>
