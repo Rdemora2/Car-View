@@ -32,13 +32,12 @@ export class VeiculoDeleteComponent implements OnInit {
 
   // Método para deletar o veículo
   deleteVeiculo(): void {
+    // Verifica se o veículo ou o ID do veículo estão ausentes
     if (!this.veiculo || !this.veiculo.id) {
-      // Verificar se o veículo ou o ID do veículo estão ausentes
       console.error('Veículo inválido ou ID do veículo ausente');
       return;
     }
-
-    // Chamar o método de deleção do serviço de veículo
+    // Chama o método de deleção do serviço de veículo
     this.veiculoService.deletarVeiculo(this.veiculo.id).subscribe(
       () => {
         console.log('Veículo deletado com sucesso!');
@@ -46,7 +45,6 @@ export class VeiculoDeleteComponent implements OnInit {
       },
       (error) => {
         console.error('Erro ao deletar o veículo:', error);
-        // Trate o erro aqui de acordo com os requisitos do seu projeto.
       }
     );
   }

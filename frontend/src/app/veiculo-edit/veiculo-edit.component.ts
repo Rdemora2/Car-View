@@ -24,16 +24,14 @@ export class VeiculoEditComponent implements OnInit {
   constructor(private veiculoService: VeiculoService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    // Obter o valor do parâmetro 'id' da rota
     const id = this.route.snapshot.params['id'];
-    // Chamar a função carregarDetalhesVeiculo com o valor do 'id'
     this.carregarDetalhesVeiculo(id);
   }
 
   carregarDetalhesVeiculo(id: number): void {
     // Verificar se o 'id' é válido
     if (id !== undefined) {
-      // Chamar o serviço para carregar os detalhes do veículo
+      // Chama o serviço para carregar os detalhes do veículo
       this.veiculoService.obterDetalhesVeiculo(id).subscribe((veiculo) => {
         this.veiculo = veiculo;
       });
@@ -57,7 +55,6 @@ export class VeiculoEditComponent implements OnInit {
     if (this.veiculo.id !== undefined) {
       this.veiculoService.editarVeiculo(this.veiculo.id, formData)
         .subscribe(() => {
-          // Lógica após a edição do veículo (por exemplo, exibir uma mensagem de sucesso)
           console.log('Veículo editado com sucesso!');
         }, (error) => {
           console.error('Erro ao editar veículo:', error);

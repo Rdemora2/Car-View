@@ -1,0 +1,38 @@
+html,
+body,
+.container-fluid {
+  height: 90vh;
+}
+
+
+.container-fluid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilo para o card */
+.card {
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para o título */
+.card-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Estilo para os links */
+.card-text a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.card-text a:hover {
+  text-decoration: underline;
+}
