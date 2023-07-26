@@ -1,5 +1,7 @@
-<main>
-  <h2>Veículos Disponíveis</h2>
+<header class="bg-dark text-white text-center py-2 mb-3">
+    <h2 class="display-4">Veículos Disponíveis</h2>
+</header>
+<div class="container_disponiveis">
   <div class="card veiculo-container" *ngFor="let veiculo of veiculos">
     <img [src]="imageUrlMap[veiculo.id!]" class="card-img-top" alt="Imagem do Veículo">
     <div class="card-body">
@@ -9,7 +11,7 @@
       <button class="btn btn-danger mx-2" (click)="excluirVeiculo(veiculo.id)">Excluir</button>
     </div>
   </div>
-</main>
+</div>
 
 <!-- <footer class="bg-dark text-center text-white">
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
