@@ -42,7 +42,7 @@ export class VeiculoDeleteComponent implements OnInit {
     this.veiculoService.deletarVeiculo(this.veiculo.id).subscribe(
       () => {
         console.log('Veículo deletado com sucesso!');
-        this.router.navigate(['/veiculos']);
+        this.router.navigate(['/catalog']);
       },
       (error) => {
         console.error('Erro ao deletar o veículo:', error);
