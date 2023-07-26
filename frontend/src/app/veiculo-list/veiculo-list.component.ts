@@ -51,4 +51,22 @@ export class VeiculoListComponent implements OnInit {
       console.log('ID do veículo é inválido');
     }
   }
+
+  excluirVeiculo(id: number | undefined): void {
+    // Verificar se id é um número válido antes de redirecionar para a página de edição
+    if (id !== undefined) {
+      // Obter os detalhes completos do veículo usando o serviço
+      this.veiculoService.obterDetalhesVeiculo(id).subscribe(
+        (veiculo) => {
+          // Redirecionar para a página de exclusão e passar os detalhes do veículo
+          this.router.navigate(['/delete', id], { state: { veiculo: veiculo } });
+        },
+        (error) => {
+          console.error('Erro ao obter detalhes do veículo:', error);
+        }
+      );
+    } else {
+      console.log('ID do veículo é inválido');
+    }
+  }
 }

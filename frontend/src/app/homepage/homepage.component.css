@@ -4,6 +4,6 @@
     object-fit: cover;
   }
 
-img {
+.w-100 {
     filter: blur(2px);
 }

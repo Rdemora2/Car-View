@@ -1,3 +1,6 @@
-<h2>Excluir Veículo</h2>
-<p>Tem certeza de que deseja excluir o veículo {{ veiculo.marca }} {{ veiculo.modelo }}?</p>
-<button (click)="deleteVeiculo()">Confirmar Exclusão</button>
+<div>
+    <h2>Confirmação de exclusão</h2>
+    <h3>Você tem certeza que deseja excluir o veículo {{ veiculo.marca }} {{ veiculo.modelo }}?</h3>
+    <p></p>
+    <button class="btn btn-danger" (click)="deleteVeiculo()">Confirmar Exclusão</button>
+  </div>
