@@ -10,7 +10,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 
 export class VeiculoDeleteComponent implements OnInit {
-  @Input() veiculo!: Veiculo; // Adicione o operador '!' para informar que o valor será atribuído mais tarde
+  @Input() veiculo!: Veiculo;
+  mensagemExclusao = '';
+  showComponent = true;
 
   constructor(
     private veiculoService: VeiculoService,
@@ -40,12 +42,19 @@ export class VeiculoDeleteComponent implements OnInit {
     // Chama o método de deleção do serviço de veículo
     this.veiculoService.deletarVeiculo(this.veiculo.id).subscribe(
       () => {
-        console.log('Veículo deletado com sucesso!');
-        this.router.navigate(['/catalog']);
+        this.mensagemExclusao = 'Veículo excluído com sucesso!';
+        this.showComponent = false
+        setTimeout(() => {
+          this.mensagemExclusao = '';
+          this.router.navigate(['/catalog']);
+        }, 1000);
       },
       (error) => {
         console.error('Erro ao deletar o veículo:', error);
       }
     );
+  }
+  cancelarExclusao(): void {
+    this.router.navigate(['/catalog']);
   }
 }

@@ -1,4 +1,4 @@
-<div class="modal-backdrop d-flex align-items-center justify-content-center vh-100" *ngIf="veiculo">
+<div *ngIf="showComponent" class="modal-backdrop d-flex align-items-center justify-content-center vh-100">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -8,8 +8,13 @@
         <p>Tem certeza de que deseja excluir o veículo {{ veiculo.marca }} {{ veiculo.modelo }}?</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" (click)="deleteVeiculo()">Confirmar Exclusão</button>
+        <button type="button" class="btn btn-primary" (click)="deleteVeiculo()">Confirmar Exclusão</button>
+        <button type="button" class="btn btn-danger" (click)="cancelarExclusao()">Cancelar</button>
       </div>
     </div>
   </div>
+</div>
+
+<div *ngIf="mensagemExclusao" class="alert alert-success" role="alert">
+  Veículo excluído com sucesso!
 </div>

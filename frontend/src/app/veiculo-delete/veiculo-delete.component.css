@@ -1,34 +1,30 @@
-/* Estilos personalizados para o container principal */
 .modal-backdrop {
-    background-color: rgba(0, 0, 0, 0.5); /* Cor de fundo semi-transparente */
+    background-color: rgba(0, 0, 0, 0.5);
   }
   
-  /* Estilos personalizados para o modal */
   .modal-dialog {
-    width: 400px; /* Largura do modal */
-    border-radius: 5px; /* Cantos arredondados */
-    background-color: #fff; /* Cor de fundo */
-    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3); /* Sombra */
+    width: 400px; 
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
   }
   
-  /* Estilos personalizados para o título do modal */
   .modal-title {
-    text-align: center; /* Centralizar o título */
+    text-align: center;
+    margin-left: 10px;
   }
   
-  /* Estilos personalizados para o corpo do modal */
+
   .modal-body {
-    padding: 20px; /* Espaçamento interno */
+    padding: 20px;
   }
   
-  /* Estilos personalizados para o rodapé do modal */
   .modal-footer {
-    padding: 10px 20px; /* Espaçamento interno vertical e horizontal */
-    text-align: center; /* Centralizar os botões */
+    padding: 10px 20px;
+    text-align: center;
   }
   
-  /* Estilos personalizados para os botões do modal */
   .btn-secondary {
-    margin-right: 10px; /* Espaçamento entre os botões */
+    margin-right: 10px;
   }
   
