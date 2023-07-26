@@ -1,15 +1,34 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Veiculo } from '../services/veiculo';
 import { VeiculoService } from '../services/veiculo.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-veiculo-delete',
   templateUrl: './veiculo-delete.component.html',
+  styleUrls: ['./veiculo-delete.component.css']
 })
-export class VeiculoDeleteComponent {
+
+export class VeiculoDeleteComponent implements OnInit {
   @Input() veiculo!: Veiculo; // Adicione o operador '!' para informar que o valor será atribuído mais tarde
 
-  constructor(private veiculoService: VeiculoService) {}
+  constructor(
+    private veiculoService: VeiculoService,
+    private route: ActivatedRoute,
+    private router: Router
+    ) {}
+
+  ngOnInit(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.veiculoService.obterDetalhesVeiculo(id).subscribe(
+      (veiculo) => {
+        this.veiculo = veiculo;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
 
   // Método para deletar o veículo
   deleteVeiculo(): void {
@@ -23,7 +42,7 @@ export class VeiculoDeleteComponent {
     this.veiculoService.deletarVeiculo(this.veiculo.id).subscribe(
       () => {
         console.log('Veículo deletado com sucesso!');
-        // Adicione aqui qualquer lógica adicional após a deleção do veículo, como atualizar a lista de veículos.
+        this.router.navigate(['/veiculos']);
       },
       (error) => {
         console.error('Erro ao deletar o veículo:', error);
