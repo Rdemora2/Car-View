@@ -1,24 +1,31 @@
-<h2>Cadastrar Novo Veículo</h2>
-<form (submit)="criarVeiculo()">
-  <label>
-    Marca:
-    <input type="text" [(ngModel)]="novoVeiculo.marca" name="marca" required>
-  </label>
-  <br>
-  <label>
-    Modelo:
-    <input type="text" [(ngModel)]="novoVeiculo.modelo" name="modelo" required>
-  </label>
-  <br>
-  <div class="form-group">
-    <label for="foto">Foto do Veículo:</label>
-    <input type="file" id="foto" name="foto" (change)="onFotoSelecionada($event)">
+<div class="container-fluid d-flex align-items-center justify-content-center vh-90">
+  <div class="col-md-6">
+    <div class="card p-4">
+      <h2 class="mb-4 text-center">Cadastrar Novo Veículo</h2>
+      <form (submit)="criarVeiculo()">
+        <div class="form-group">
+          <label for="marca">Marca:</label>
+          <input type="text" class="form-control" [(ngModel)]="novoVeiculo.marca" name="marca" required>
+        </div>
+        <div class="form-group">
+          <label for="modelo">Modelo:</label>
+          <input type="text" class="form-control" [(ngModel)]="novoVeiculo.modelo" name="modelo" required>
+        </div>
+        <div class="form-group">
+          <label for="foto">Foto do Veículo:</label>
+          <input type="file" class="form-control-file" id="foto" name="foto" (change)="onFotoSelecionada($event)">
+        </div>
+        <div class="form-group">
+          <label for="valor">Valor:</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">R$</span>
+            </div>
+            <input type="number" class="form-control" [(ngModel)]="novoVeiculo.valor" name="valor" required>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Criar Veículo</button>
+      </form>
+    </div>
   </div>
-  <br>
-  <label>
-    Valor:
-    <input type="number" [(ngModel)]="novoVeiculo.valor" name="valor" required>
-  </label>
-  <br>
-  <button type="submit">Criar Veículo</button>
-</form>
+</div>

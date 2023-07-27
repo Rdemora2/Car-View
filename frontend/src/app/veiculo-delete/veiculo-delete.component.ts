@@ -47,7 +47,7 @@ export class VeiculoDeleteComponent implements OnInit {
         setTimeout(() => {
           this.mensagemExclusao = '';
           this.router.navigate(['/catalog']);
-        }, 1000);
+        }, 500);
       },
       (error) => {
         console.error('Erro ao deletar o veículo:', error);
