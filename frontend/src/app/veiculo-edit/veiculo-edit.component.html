@@ -13,12 +13,9 @@
             <input type="text" class="form-control" [(ngModel)]="veiculo.modelo" name="modelo" required>
           </div>
           <div class="form-group">
-            <label for="foto">Foto:</label>
-            <input type="file" class="form-control-file" id="foto" name="foto" (change)="onFotoChange($event)">
-          </div>
-          <div *ngIf="veiculo.foto">
-            <img [src]="veiculo.foto" class="img-thumbnail" alt="Foto do Veículo">
-          </div>
+            <label for="foto">Nova Foto do Veículo (opcional):</label>
+            <input type="file" class="form-control-file" id="foto" name="foto" (change)="onNovaFotoSelecionada($event)">
+          </div>          
           <div class="form-group">
             <label for="valor">Valor</label>
             <input type="number" class="form-control" [(ngModel)]="veiculo.valor" name="valor" required>
