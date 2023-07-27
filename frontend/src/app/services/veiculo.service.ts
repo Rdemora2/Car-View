@@ -44,16 +44,16 @@ export class VeiculoService {
   }
 
   isAuthenticated(): boolean {
-    // Obtenha o token JWT armazenado no localStorage
+    // Obtem o token JWT armazenado no localStorage
     const token = localStorage.getItem('token');
 
-    // Verifique se o token existe
+    // Verifica se o token existe
     if (token) {
       try {
-        // Decodifique o token para obter as informações
+        // Decodifica o token para obter as informações
         const tokenInfo: JwtToken = JSON.parse(atob(token.split('.')[1]));
 
-        // Verifique se o token está expirado
+        // Verifica se o token está expirado
         const currentDate = new Date();
         const tokenExpirationDate = new Date(tokenInfo.exp * 1000);
 
@@ -62,17 +62,17 @@ export class VeiculoService {
           return true;
         } else {
           // O token está expirado
-          // Remova o token inválido do localStorage
+          // Remove o token inválido do localStorage
           localStorage.removeItem('token');
         }
       } catch (error) {
         console.error('Erro ao decodificar o token JWT:', error);
-        // Remova o token inválido do localStorage caso ocorra algum erro ao decodificar
+        // Remove o token inválido do localStorage caso ocorra algum erro ao decodificar
         localStorage.removeItem('token');
       }
     }
 
-    // Caso o token não exista ou esteja inválido, retorne false
+    // Caso o token não exista ou esteja inválido, retorna false
     return false;
   }
 }

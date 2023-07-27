@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Veiculo } from '../services/veiculo';
 import { VeiculoService } from '../services/veiculo.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 function isFile(obj: any): obj is File {
   return obj instanceof File;
@@ -20,8 +20,9 @@ export class VeiculoEditComponent implements OnInit {
     foto: '',
     valor: 0
   };
+  mensagemSucesso: string | null = null;
 
-  constructor(private veiculoService: VeiculoService, private route: ActivatedRoute) { }
+  constructor(private veiculoService: VeiculoService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.params['id'];
@@ -55,7 +56,11 @@ export class VeiculoEditComponent implements OnInit {
     if (this.veiculo.id !== undefined) {
       this.veiculoService.editarVeiculo(this.veiculo.id, formData)
         .subscribe(() => {
-          console.log('Veículo editado com sucesso!');
+          this.mensagemSucesso = 'Veículo editado com sucesso!';
+          setTimeout(() => {
+            this.mensagemSucesso = null;
+            this.router.navigate(['/catalog']);
+          }, 500);
         }, (error) => {
           console.error('Erro ao editar veículo:', error);
         });

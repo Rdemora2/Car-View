@@ -14,7 +14,10 @@
           </div>
           <div class="form-group">
             <label for="foto">Foto:</label>
-            <input type="file" class="form-control-file" id="foto" name="foto" (change)="onFotoChange($event)" required>
+            <input type="file" class="form-control-file" id="foto" name="foto" (change)="onFotoChange($event)">
+          </div>
+          <div *ngIf="veiculo.foto">
+            <img [src]="veiculo.foto" class="img-thumbnail" alt="Foto do Veículo">
           </div>
           <div class="form-group">
             <label for="valor">Valor</label>
@@ -24,5 +27,8 @@
         </form>
       </div>
     </div>
+  </div>
+  <div *ngIf="mensagemSucesso" class="alert alert-success" role="alert">
+    {{ mensagemSucesso }}
   </div>
 </div>
