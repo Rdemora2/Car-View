@@ -1,6 +1,6 @@
 import os
 from django.conf import settings
-from django.http import HttpResponse, Http404, HttpResponseBadRequest
+from django.http import HttpResponse, Http404
 from rest_framework import generics
 from .models import Veiculo
 from .serializers import VeiculoSerializer
@@ -10,11 +10,6 @@ from rest_framework.response import Response
 
 class VeiculoListCreateView(generics.ListCreateAPIView):
     queryset = Veiculo.objects.all().order_by('valor')
-    serializer_class = VeiculoSerializer
-    permission_classes = [IsAuthenticated]
-
-class VeiculoDetailView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Veiculo.objects.all()
     serializer_class = VeiculoSerializer
     permission_classes = [IsAuthenticated]
 
@@ -41,6 +36,8 @@ class VeiculoDetailView(generics.RetrieveUpdateDestroyAPIView):
         veiculo.marca = request.data.get('marca', veiculo.marca)
         veiculo.modelo = request.data.get('modelo', veiculo.modelo)
         veiculo.valor = request.data.get('valor', veiculo.valor)
+        veiculo.ano = request.data.get('ano', veiculo.ano)  # Adicione o campo 'ano'
+        veiculo.odometro = request.data.get('odometro', veiculo.odometro)  # Adicione o campo 'odometro'
         veiculo.save()
 
         serializer = VeiculoSerializer(veiculo)

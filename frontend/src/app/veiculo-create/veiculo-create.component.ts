@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { VeiculoService } from '../services/veiculo.service';
 import { Router } from '@angular/router';
+import { Veiculo } from '../services/veiculo'; // Importe o modelo Veiculo aqui
 
 @Component({
   selector: 'app-veiculo-create',
@@ -9,11 +10,13 @@ import { Router } from '@angular/router';
 })
 
 export class VeiculoCreateComponent {
-  novoVeiculo = {
+  novoVeiculo: Veiculo = {
     marca: '',
     modelo: '',
-    foto: null as File | null,
-    valor: 0
+    foto: null,
+    valor: 0,
+    ano: 0,
+    odometro: 0 
   };
 
   constructor(private veiculoService: VeiculoService, private router: Router) {}
@@ -30,6 +33,9 @@ export class VeiculoCreateComponent {
     formData.append('marca', this.novoVeiculo.marca);
     formData.append('modelo', this.novoVeiculo.modelo);
     formData.append('valor', this.novoVeiculo.valor.toString());
+    formData.append('ano', this.novoVeiculo.ano.toString()); 
+    formData.append('odometro', this.novoVeiculo.odometro.toString());
+
     if (this.novoVeiculo.foto) {
       formData.append('foto', this.novoVeiculo.foto, this.novoVeiculo.foto.name);
     }
@@ -40,9 +46,11 @@ export class VeiculoCreateComponent {
           marca: '',
           modelo: '',
           foto: null,
-          valor: 0
+          valor: 0,
+          ano: 0,
+          odometro: 0
         };
-        // Redireciona para o catalogo de veículos
+        // Redireciona para o catálogo de veículos
         this.router.navigate(['/catalog']);
 
       },

@@ -12,6 +12,14 @@
             <label for="modelo">Modelo</label>
             <input type="text" class="form-control" [(ngModel)]="veiculo.modelo" name="modelo" required>
           </div>
+          <div>
+            <label for="ano">Ano:</label>
+            <input type="number" id="ano" name="ano" [(ngModel)]="veiculo.ano" name="ano" required>
+          </div>
+          <div>
+            <label for="odometro">Odômetro:</label>
+            <input type="number" id="odometro" name="odometro" [(ngModel)]="veiculo.odometro" name="odometro" required>
+          </div>
           <div class="form-group">
             <label for="foto">Nova Foto do Veículo (opcional):</label>
             <input type="file" class="form-control-file" id="foto" name="foto" (change)="onNovaFotoSelecionada($event)">

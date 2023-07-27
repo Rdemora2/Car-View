@@ -45,13 +45,14 @@ export class VeiculoEditComponent implements OnInit {
     const formData = new FormData();
     formData.append('marca', this.veiculo.marca);
     formData.append('modelo', this.veiculo.modelo);
+    formData.append('ano', this.veiculo.ano?.toString() || '');
+    formData.append('odometro', this.veiculo.odometro?.toString() || '');
   
     // Verifica se há uma nova foto antes de adicionar ao formData
     if (this.novaFoto instanceof File) {
       formData.append('foto', this.novaFoto, this.novaFoto.name);
     }
   
-    // Tratamento para a propriedade 'valor'
     const valor = this.veiculo.valor !== undefined ? this.veiculo.valor : 0;
     formData.append('valor', valor.toString());
   

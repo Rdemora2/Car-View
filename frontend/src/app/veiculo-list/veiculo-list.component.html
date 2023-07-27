@@ -8,6 +8,7 @@
       <img [src]="imageUrlMap[veiculo.id!]" class="card-img-top" alt="Imagem do Veículo">
       <div class="card-body">
         <h5 class="card-title">{{ veiculo.marca }}, {{ veiculo.modelo }}</h5>
+        <h5 class="card-title">{{ veiculo.ano }} - {{ veiculo.odometro !== null ? veiculo.odometro.toString().replace('.00', '') : 'N/A' }}km</h5>
         <p class="card-text">R{{ veiculo.valor | currency }}</p>
         <button class="btn btn-primary" (click)="editarVeiculo(veiculo.id)">Editar</button>
         <button class="btn btn-danger mx-2" (click)="excluirVeiculo(veiculo.id)">Excluir</button>
