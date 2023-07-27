@@ -3,7 +3,6 @@
 </header>
 
 <div class="container_disponiveis">
-  <!-- Verifica se a lista de veículos está vazia -->
   <ng-container *ngIf="veiculos.length; else noVeiculos">
     <div class="card veiculo-container" *ngFor="let veiculo of veiculos">
       <img [src]="imageUrlMap[veiculo.id!]" class="card-img-top" alt="Imagem do Veículo">

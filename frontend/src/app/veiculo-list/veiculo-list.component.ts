@@ -27,6 +27,9 @@ export class VeiculoListComponent implements OnInit {
         this.veiculos.forEach((veiculo) => {
           this.imageUrlMap[veiculo.id!] = `${veiculo.foto}`;
         });
+
+        // Ordena os veículos por valor (decrescente)
+        this.veiculos.sort((a, b) => b.valor - a.valor);
       },
       (error) => {
         console.error(error);
