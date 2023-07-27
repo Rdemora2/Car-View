@@ -18,3 +18,18 @@ img {
 .card {
   width: 15rem;
 }
+
+.card-year {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: rgb(88, 88, 88);
+  margin: 0;
+}
+
+.card-text, h5 {
+  margin: 0;
+}
+
+button {
+  margin-top: 10px;
+}
