@@ -52,6 +52,9 @@ Gerenciamento de Veículos: O sistema permite visualizar, cadastrar, editar e de
     cd .\frontend\
     ng serve
 
+## 4 - Pronto!
+    o frontend está rodando e poder ser accesado em: http://localhost:4200/
+
 
 
 ## Tecnologias Utilizadas
