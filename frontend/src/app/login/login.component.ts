@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ export class LoginComponent {
   password: string = '';
   loginSuccess: boolean = false; // Variável para controlar o estado de autenticação
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   onSubmit(): void {
     this.authService.login(this.username, this.password).subscribe(
@@ -20,13 +21,13 @@ export class LoginComponent {
         localStorage.setItem('token', response.access);
         // Imprimir o token JWT no console
         console.log('Token JWT:', response.access);
-
-        // Mostrar mensagem de login bem-sucedido e ocultar os campos de login
         this.loginSuccess = true;
+        setTimeout(() => {
+          this.router.navigate(['/']);
+        }, 700);
       },
       (error) => {
         console.error('Erro ao fazer login:', error);
-        // Lógica para tratar erros de login, exibir mensagens de erro, etc.
       }
     );
   }

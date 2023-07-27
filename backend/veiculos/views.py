@@ -9,14 +9,12 @@ from PIL import Image
 from rest_framework.response import Response
 
 class VeiculoListCreateView(generics.ListCreateAPIView):
-    queryset = Veiculo.objects.all().order_by('valor')
+    queryset = Veiculo.objects.all()
     serializer_class = VeiculoSerializer
-    permission_classes = [IsAuthenticated]
 
 class VeiculoDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Veiculo.objects.all()
     serializer_class = VeiculoSerializer
-    permission_classes = [IsAuthenticated]
 
     def put(self, request, *args, **kwargs):
         veiculo = self.get_object()
@@ -30,7 +28,7 @@ class VeiculoDetailView(generics.RetrieveUpdateDestroyAPIView):
             except Exception as e:
                 return Response({'foto': ['Fazer upload de uma imagem válida. O arquivo enviado não é um arquivo de imagem ou está corrompido.']}, status=status.HTTP_400_BAD_REQUEST)
 
-            # Caso a foto tenha sido enviada e seja uma imagem válida, atualize a foto do veículo
+            # Caso a foto tenha sido enviada e seja uma imagem válida, atualiza a foto do veículo
             veiculo.foto = foto
 
         veiculo.marca = request.data.get('marca', veiculo.marca)
