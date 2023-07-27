@@ -14,23 +14,26 @@ Gerenciamento de Veículos: O sistema permite visualizar, cadastrar, editar e de
 
 # Instruções de Uso Backend:
 
-## 1 - Crie e ative a venv
+## 1 - Certifique-se de ter o python instalado corretamente em sua máquina
+    caso não tenha: https://www.python.org/downloads/
+
+## 2 - Crie e ative a venv
     abra um terminal na pasta root do projeto e execute:
     python3 -m venv venv
     .\venv\Scripts\activate
 
-## 2 - Instale os requirements
+## 3 - Instale os requirements
     pip install -r requirements.txt
 
-## 3 - Faça as migrações do db
+## 4 - Faça as migrações do db
     cd .\backend\
     python manage.py makemigrations
     python manage.py migrate
 
-## 4 - Rode o servidor
+## 5 - Rode o servidor
     python manage.py runserver
 
-## 5 - Pronto!
+## 6 - Pronto!
     o backend está rodando e poder ser accesado em: http://localhost:8000/
 
 
@@ -42,6 +45,7 @@ Gerenciamento de Veículos: O sistema permite visualizar, cadastrar, editar e de
 ## 2 - Instale as dependências
     abra um terminal na raiz do seu projeto
     npm install
+    npm install -g @angular/cli
 
 ## 3 - Rode o servidor
     no mesmo terminal usando para instalar as dependencias anteriormente, execute:
