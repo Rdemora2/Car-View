@@ -58,11 +58,10 @@ Gerenciamento de Veículos: O sistema permite visualizar, cadastrar, editar e de
 
 
 ## Tecnologias Utilizadas
-TypeScript
-Angular
-Python
-Django Rest Framework
+- TypeScript
+- Angular
+- Python
+- Django Rest Framework
 
 ## Autor
 Roberto de Moraes Zarzur
-Dev Full Stack
