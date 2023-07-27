@@ -39,12 +39,12 @@ Gerenciamento de Veículos: O sistema permite visualizar, cadastrar, editar e de
 ## 1 - Baixe o node.js
     https://nodejs.org/pt-br/download
 
-## 2 - Download Angular, node, jquery, bootstrap and popper
-    Em um terminal, execute
-    npm install angular bootstrap jquery popper.js
+## 2 - Instale as dependências
+    abra um terminal na raiz do seu projeto
+    npm install
 
 ## 3 - Rode o servidor
-    abra um terminal na raiz do seu projeto
+    no mesmo terminal usando para instalar as dependencias anteriormente, execute:
     cd .\frontend\
     ng serve
 
