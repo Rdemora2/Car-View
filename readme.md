@@ -30,10 +30,13 @@ Gerenciamento de Veículos: O sistema permite visualizar, cadastrar, editar e de
     python manage.py makemigrations
     python manage.py migrate
 
-## 5 - Rode o servidor
+## 5 - Crie o usuário administrativo
+    python manage.py createsuperuser
+
+## 6 - Rode o servidor
     python manage.py runserver
 
-## 6 - Pronto!
+## 7 - Pronto!
     o backend está rodando e poder ser accesado em: http://localhost:8000/
 
 
